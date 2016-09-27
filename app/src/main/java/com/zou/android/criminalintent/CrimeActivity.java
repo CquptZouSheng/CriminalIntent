@@ -14,9 +14,10 @@ public class CrimeActivity extends FragmentActivity {
         setContentView(R.layout.activity_crime);
         FragmentManager mFragmentManager=getSupportFragmentManager();
         Fragment fragment=mFragmentManager.findFragmentById(R.id.fragment_container);
+        //如果fragment已存在于队列中则直接加载
         if (fragment==null){
             fragment=new CrimeFragment();
             mFragmentManager.beginTransaction().add(R.id.fragment_container,fragment).commit();
-        }
+        }//不存在于队列中，提交事务创建新Fragment
     }
 }
